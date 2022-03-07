@@ -1,5 +1,5 @@
 import sqlite3
-from .convert import encrypt
+import hashlib
 
 # with sqlite3.connect("main.db") as db:
 #     cur = db.cursor()
@@ -11,6 +11,13 @@ from .convert import encrypt
 #         profile BLOB,
 #         email TEXT
 #     )""")
+
+def encrypt(text):
+    text = text.encode()
+    encrypted = hashlib.sha256(text)
+    text = encrypted.hexdigest()
+
+    return text
 
 def get_db():
     with sqlite3.connect("main.db") as db:

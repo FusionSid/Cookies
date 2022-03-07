@@ -53,7 +53,7 @@ def login():
             correct = True
 
         if correct:
-            resp = redirect("/account/")
+            resp = redirect("/account")
             resp.set_cookie('username', username)
             resp.set_cookie('password', password)
 
@@ -97,7 +97,7 @@ def signup():
             else:
                 return ("ERROR")
 
-            resp = redirect("/account/")
+            resp = redirect("/account")
             resp.set_cookie('username', username)
             resp.set_cookie('password', password)
         
